@@ -25,7 +25,7 @@ export default function NovaTarefa({ tarefasIniciais }: NovaTarefaProps) {
       const adicionadas = JSON.parse(salvas);
       // Mesclar simuladas e adicionadas, evitando duplicidade
       const idsSimuladas = tarefasIniciais.map(t => t.id);
-      const filtradas = adicionadas.filter(t => !idsSimuladas.includes(t.id));
+      const filtradas = adicionadas.filter((t: Tarefa) => !idsSimuladas.includes(t.id));
       setTarefas([...tarefasIniciais, ...filtradas]);
     } else {
       setTarefas(tarefasIniciais);
